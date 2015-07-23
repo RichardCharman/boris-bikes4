@@ -1,6 +1,6 @@
 require_relative 'bike'
-class DockingStation
-  DEFAULT_CAPACITY = 20
+class Garage
+  DEFAULT_CAPACITY = 50
   
   attr_accessor :capacity 
   
@@ -19,12 +19,8 @@ class DockingStation
   end
   
   def dock bike
-    fail 'Docking station full' if full?
+    fail 'Garage full' if full?
     bikes << bike
-  end
-  
-  def release_broken
-    bikes.each { |b| if b.working? == false; return bikes.delete(b) end } 
   end
   
   private

@@ -1,6 +1,6 @@
 require_relative 'bike'
-class DockingStation
-  DEFAULT_CAPACITY = 20
+class Van
+  DEFAULT_CAPACITY = 5
   
   attr_accessor :capacity 
   
@@ -19,7 +19,7 @@ class DockingStation
   end
   
   def dock bike
-    fail 'Docking station full' if full?
+    fail 'Van full' if full?
     bikes << bike
   end
   
