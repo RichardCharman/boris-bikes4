@@ -14,6 +14,14 @@ describe DockingStation do
   it 'has a default capacity' do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
+     
+  context 'testing initialized argument' do
+    let(:test){ 100 } 
+    subject(:testing){DockingStation.new(test)}
+  it 'should initilaize with 1 argument' do
+    expect(subject.capacity).to eq test
+  end
+end
 
 describe 'dock' do
   it 'raises an error when full' do
