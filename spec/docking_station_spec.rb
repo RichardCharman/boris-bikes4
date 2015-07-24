@@ -1,10 +1,13 @@
 require 'docking_station'
+require 'support/shared_examples_for_bike_container'
 
 describe DockingStation do
   it {is_expected.to respond_to(:dock).with(1).argument}
   it {is_expected.to respond_to :release_bike}
   it {is_expected.to respond_to :release_broken}
 
+  it_behaves_like BikeContainer
+  
   it 'releases working bikes' do
     subject.dock double :bike, working?: true
     bike = subject.release_bike
